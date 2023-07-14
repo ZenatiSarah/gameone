@@ -48,16 +48,22 @@ nom.addEventListener('input', () => {
 });
 
 function validateEmail(email) {
+
     const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     return regex.test(email);
 }
 
-email.addEventListener('input', () => {
+email.addEventListener('change', () => {
     const emailValue = email.value;
+    let emailError = document.getElementById('emailError');
 
     if (validateEmail(emailValue)) {
+        emailError.textContent = "";
         return true;
     } else {
+        emailError.textContent = "Veuillez rentrer une email valide";
+        emailError.style.color = "red";
+        emailError.style.fontSize = "15px"
         return false;
     }
 });
