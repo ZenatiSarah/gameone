@@ -12,6 +12,7 @@ function gestionChampsForm() {
     birthdateControl();
     quantityControl();
     locationControl();
+    validateEmail();
     conditionControl();
 
 

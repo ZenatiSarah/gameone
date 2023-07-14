@@ -47,17 +47,13 @@ nom.addEventListener('input', () => {
     nomControl();
 });
 
-function validateEmail(email) {
+function validateEmail() {
 
     const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    return regex.test(email);
-}
-
-email.addEventListener('change', () => {
     const emailValue = email.value;
     let emailError = document.getElementById('emailError');
 
-    if (validateEmail(emailValue)) {
+    if (regex.test(emailValue)) {
         emailError.textContent = "";
         return true;
     } else {
@@ -66,6 +62,10 @@ email.addEventListener('change', () => {
         emailError.style.fontSize = "15px"
         return false;
     }
+}
+
+email.addEventListener('change', () => {
+    validateEmail();
 });
 
 function birthdateControl() {
