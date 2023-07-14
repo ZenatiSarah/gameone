@@ -55,11 +55,17 @@
       <div class="bground">
         <div class="content">
           <span class="close"></span>
+          <div class="formConfirm">
+            <span>Merci ! <br/> Votre réservation a été envoyé !</span>
+          </div>
+
+
           <div class="modal-body">
             <form
               name="reserve"
               action="index.html"
               method="post"
+              class="form"
             >
               <div
                 class="formData"
@@ -115,6 +121,7 @@
                 <p id="quantityError"><!-- ci est un message d'erreur --></p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+              <p id="locationError"><!-- ci est un message d'erreur --></p>
               <div
                 class="formData">
                 <input
@@ -223,5 +230,6 @@
     </footer>
     <script src="js/modal.js"></script>
     <script src="js/formControl.js"></script>
+    <script src="js/modalConfirm.js"></script>
   </body>
 </html>

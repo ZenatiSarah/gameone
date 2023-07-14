@@ -1,62 +1,16 @@
-function gestionChampsForm() {
-
-    const first = document.getElementById('first').value;
-    const last = document.getElementById('last').value;
-    const email = document.getElementById('email').value;
-    const birthdate = document.getElementById('birthdate').value;
-    const quantity = document.getElementById('quantity').value;
-    let formError = document.querySelector("#formError");
-
-
-    conditionControl();
-    prenomControl();
-    nomControl();
-    birthdateControl();
-    quantityControl();
-    locationControl();
-
-    if (first == false || last == false || email == false || birthdate == false || quantity == false || location == false || conditions == false) {
-        formError.textContent = "Veuillez remplir tout les champs du formulaire";
-        formError.style.color = 'red';
-        formError.style.fontSize = '15px';
-        return false
-    } else {
-        formError.textContent = "";
-        return true;
-    }
-
-
-};
-
-function locationControl() {
-    let locationError = document.querySelector("#locationError");
-    let baliseLocation = document.querySelectorAll('input[name="location"]');
-
-    let location = "";
-
-    for (let i = 0; i < baliseLocation.length; i++) {
-        if (baliseLocation[i].checked) {
-            location = baliseLocation[i].value
-            break
-        }
-    }
-
-    if (location == "") {
-        locationError.textContent = "Veuillez coacher ";
-        locationError.style.color = 'red';
-        locationError.style.fontSize = '15px';
-        return false;
-    } else {
-        locationError.textContent = " ";
-        return true;
-    }
-}
-
-// Champs prenom
+// DOM
 let prenom = document.getElementById("first");
-let firstNameError = document.querySelector("#firstNameError");
+let nom = document.getElementById('last');
+let email = document.getElementById('email');
+const birthdate = document.getElementById('birthdate');
+const quantity = document.getElementById('quantity');
+let baliseConditions = document.getElementById("checkbox1");
 
 function prenomControl() {
+
+
+    let firstNameError = document.querySelector("#firstNameError");
+
     if (prenom.value === "" || prenom.value.length < 2) {
         firstNameError.textContent = "Veuillez rentrer deux caractères minimum";
         firstNameError.style.color = 'red';
@@ -74,11 +28,11 @@ prenom.addEventListener('input', () => {
 
 });
 
-//Champs Nom
-let nom = document.getElementById('last');
-let lastNameError = document.querySelector("#lastNameError");
-
 function nomControl() {
+
+
+    let lastNameError = document.querySelector("#lastNameError");
+
     if (nom.value === "" || nom.value.length < 2) {
         lastNameError.textContent = "Veuillez rentrer deux caractères minimum";
         lastNameError.style.color = 'red';
@@ -93,26 +47,26 @@ nom.addEventListener('input', () => {
     nomControl();
 });
 
-// Champs email
-let email = document.getElementById('email');
-const regexEmail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
+function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    return regex.test(email);
+}
 
 email.addEventListener('input', () => {
-    if (regexEmail.test(email)) {
-        console.log("email true")
+    const emailValue = email.value;
+
+    if (validateEmail(emailValue)) {
         return true;
     } else {
-        console.log("email false")
         return false;
     }
-
 });
 
-//Champs Birthdate
-const birthdate = document.getElementById('birthdate');
-let birthdateError = document.querySelector("#birthdateError");
-
 function birthdateControl() {
+
+
+    let birthdateError = document.querySelector("#birthdateError");
+
     if (birthdate.value == "") {
         birthdateError.textContent = "Veuillez remplir le champs ";
         birthdateError.style.color = 'red';
@@ -128,10 +82,11 @@ birthdate.addEventListener('change', () => {
     birthdateControl();
 });
 
-//Champs Quantity
-const quantity = document.getElementById('quantity');
-let quantityError = document.querySelector("#quantityError");
 function quantityControl() {
+
+
+    let quantityError = document.querySelector("#quantityError");
+
     if (quantity.value == null || quantity.value < 1) {
         quantityError.textContent = "Indiquez le nombre de tournois ";
         quantityError.style.color = 'red';
@@ -147,12 +102,33 @@ quantity.addEventListener('input', () => {
     quantityControl();
 });
 
+function locationControl() {
+    let locationError = document.querySelector("#locationError");
+    let baliseLocation = document.querySelectorAll('input[name="location"]');
 
-//Champs Conditions
-let baliseConditions = document.getElementById("checkbox1");
-let conditionError = document.querySelector("#conditionError");
+    let location = "";
+
+    for (let i = 0; i < baliseLocation.length; i++) {
+        if (baliseLocation[i].checked) {
+            location = baliseLocation[i].value
+            break
+        }
+    }
+
+    if (location == "") {
+        locationError.textContent = "Veuillez choisir un lieu ";
+        locationError.style.color = 'red';
+        locationError.style.fontSize = '15px';
+        return false;
+    } else {
+        locationError.textContent = "";
+        return true;
+    }
+}
 
 function conditionControl() {
+
+    let conditionError = document.querySelector("#conditionError");
     let conditions = baliseConditions.checked
 
     if (conditions == true) {
@@ -165,16 +141,7 @@ function conditionControl() {
         return false;
     }
 }
+
 baliseConditions.addEventListener('input', () => {
     conditionControl();
-});
-
-
-
-
-const form = document.querySelector("form");
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    gestionChampsForm()
-
 });
