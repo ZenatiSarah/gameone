@@ -21,6 +21,9 @@ body {
   margin: 0 auto;
 }
 .formConfirm{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   width: 100%;
   text-align: center;
   align-items: center;

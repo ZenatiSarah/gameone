@@ -26,7 +26,7 @@ function gestionChampsForm() {
     } else {
         console.log("formulaire true");
         formError.textContent = "";
-        formConfirm.style.display = "block";
+        formConfirm.style.display = "flex";
         form.style.display = "none";
 
         return true;
