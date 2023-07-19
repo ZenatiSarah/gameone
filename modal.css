@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -86,6 +85,7 @@ img {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
+    color: #ff0000;
     display: block;
   }
 }
@@ -112,6 +112,7 @@ img {
     float: right;
     display: block;
     margin-top: -15px;
+    color: #ff0000 ;
   }
 } 
 
@@ -153,15 +154,6 @@ main {
 
 /* Modal form */
 
-.button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-}
 
 .button:hover {
   background: #3876ac;
@@ -434,7 +426,6 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
 }
 .hero-content::after {
   content: "";
@@ -500,7 +491,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 20px 0px 0px;
   }
   .hero-content::after {
     content: unset;
@@ -509,12 +500,14 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2rem;
+    font-weight: bold;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
   }
   .hero-img img {
     border-radius: 10px;

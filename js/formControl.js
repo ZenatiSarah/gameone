@@ -122,7 +122,7 @@ function locationControl() {
     }
 
     if (location == "") {
-        locationError.textContent = "Veuillez choisir un lieu ";
+        locationError.textContent = "Veuillez choisir une ville ";
         locationError.style.color = 'red';
         locationError.style.fontSize = '15px';
         return false;
