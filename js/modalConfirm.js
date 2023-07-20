@@ -1,5 +1,7 @@
+//DOM
 const form = document.querySelector(".form");
 
+//Fonction vérification envoie formulaire s'il n'est pas vide ou s'il n'a pas d'erreur
 function gestionChampsForm() {
 
     const email = document.getElementById('email').value;
