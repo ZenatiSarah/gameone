@@ -113,15 +113,14 @@ quantity.addEventListener('input', () => {
 });
 
 //Vérification du bouton radio pour sélectionner la ville
+let locationValue = "";
 function locationControl() {
     let locationError = document.querySelector("#locationError");
     let baliseLocation = document.querySelectorAll('input[name="location"]');
 
-    let location = "";
-
     for (let i = 0; i < baliseLocation.length; i++) {
         if (baliseLocation[i].checked) {
-            location = baliseLocation[i].value
+            locationValue = baliseLocation[i].value
             break
         }
     }
@@ -138,10 +137,10 @@ function locationControl() {
 }
 
 //Vérification si on a bien coché la case des conditions générales
+let conditions = baliseConditions.checked;
 function conditionControl() {
 
     let conditionError = document.querySelector("#conditionError");
-    let conditions = baliseConditions.checked
 
     if (conditions == true) {
         conditionError.textContent = ""

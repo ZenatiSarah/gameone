@@ -19,20 +19,30 @@ function gestionChampsForm() {
 
 
     if (prenomControl() == false || nomControl() == false || email == false || birthdateControl() == false || quantityControl() == false ||
-        locationControl == false || conditionControl == false) {
+        locationControl() == false || conditionControl == false) {
 
         formError.textContent = "Veuillez remplir tout les champs du formulaire";
         formError.style.color = 'red';
         formError.style.fontSize = '15px';
         return false
     } else {
-        console.log("formulaire true");
         formError.textContent = "";
         formConfirm.style.display = "flex";
         form.style.display = "none";
 
+        const user = {
+            nom: nom.value,
+            prenom: prenom.value,
+            email: email,
+            birthdate: birthdate.value,
+            quantity: quantity.value,
+            location: locationValue,
+            condition: conditions
+        }
+        console.log(user)
         return true;
     }
+
 
 };
 
