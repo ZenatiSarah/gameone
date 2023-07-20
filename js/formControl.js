@@ -6,8 +6,8 @@ const birthdate = document.getElementById('birthdate');
 const quantity = document.getElementById('quantity');
 let baliseConditions = document.getElementById("checkbox1");
 
+//Vérification champs prénom
 function prenomControl() {
-
 
     let firstNameError = document.querySelector("#firstNameError");
 
@@ -28,6 +28,7 @@ prenom.addEventListener('input', () => {
 
 });
 
+//Vérification Champs nom
 function nomControl() {
 
 
@@ -47,6 +48,7 @@ nom.addEventListener('input', () => {
     nomControl();
 });
 
+//Vérification Champs email
 function validateEmail() {
 
     const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
@@ -68,6 +70,7 @@ email.addEventListener('change', () => {
     validateEmail();
 });
 
+//Vérification champs "birthdate"
 function birthdateControl() {
 
 
@@ -88,6 +91,7 @@ birthdate.addEventListener('change', () => {
     birthdateControl();
 });
 
+//Vérification du champs "quantity"
 function quantityControl() {
 
 
@@ -108,6 +112,7 @@ quantity.addEventListener('input', () => {
     quantityControl();
 });
 
+//Vérification du bouton radio pour sélectionner la ville
 function locationControl() {
     let locationError = document.querySelector("#locationError");
     let baliseLocation = document.querySelectorAll('input[name="location"]');
@@ -132,6 +137,7 @@ function locationControl() {
     }
 }
 
+//Vérification si on a bien coché la case des conditions générales
 function conditionControl() {
 
     let conditionError = document.querySelector("#conditionError");

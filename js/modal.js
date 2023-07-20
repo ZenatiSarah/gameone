@@ -25,6 +25,7 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+//Close modal after confirmation
 function closeModal() {
   modalbg.style.display = "none";
   window.location.reload()
